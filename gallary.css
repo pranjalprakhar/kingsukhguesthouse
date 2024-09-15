@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+  --primary-bg: #f5f7fa; /* Light background for entire container */
+  --box-bg: #ffffff;     /* White background for boxes */
+  --box-border: #e0e0e0; /* Light border for boxes */
+  --accent-color: #4a89dc; /* Accent color for hover effects */
+  --text-color: #2e2e2e;  /* Dark gray for text */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+body {
+  background: var(--primary-bg);
+}
+
+/* Grid container */
+.container11 {
+  display: grid;
+  grid-gap: 20px; /* Add some gap between grid items */
+  width: 100%;
+  padding: 20px;
+  grid-template-columns: repeat(5, 1fr); /* Define 5 columns */
+  grid-auto-rows: 33.33vh; /* Set each row height */
+}
+
+/* General box styling */
+.container11 .box11 {
+  position: relative;
+  background: var(--box-bg);
+  border: 1px solid var(--box-border); /* Add subtle borders */
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container11 .box11:hover {
+  transform: translateY(-10px); /* Lift effect on hover */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Row and column spans */
+.container11 .box11.a {
+  grid-row: span 2; /* Span 2 rows */
+}
+
+.container11 .box11.b,
+.container11 .box11.f,
+.container11 .box11.j {
+  grid-column: span 2; /* Span 2 columns */
+}
+
+.container11 .box11.h {
+  grid-column: span 1; /* Override for smaller columns */
+}
+
+/* Image styling inside each box */
+.container11 .box11 img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure image fills box */
+  border-radius: 10px; /* Rounded corners for images */
+}
+
+/* Responsive for tablet screens */
+@media (max-width: 991px) {
+  .container11 {
+    grid-template-columns: repeat(3, 1fr); /* 3 columns */
+    grid-auto-rows: 250px; /* Adjust height */
+  }
+
+  .container11 .box11.a {
+    grid-row: span 1; /* Adjust box spans for smaller screens */
+  }
+}
+
+/* Responsive for mobile screens */
+@media (max-width: 768px) {
+  .container11 {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    grid-auto-rows: 200px; /* Adjust row height */
+    grid-gap: 15px; /* Reduce gap on mobile */
+  }
+
+  .container11 .box11 {
+    border-radius: 8px; /* Slightly smaller radius */
+  }
+}
